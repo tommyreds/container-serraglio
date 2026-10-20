@@ -1,14 +1,3 @@
-/* Container Serraglio — logica del sito
-   ------------------------------------------------------------------
-   DA MODIFICARE QUANDO HAI I DATI VERI:
-   - TELEFONO : numero WhatsApp su cui arrivano gli ordini (formato 39...)
-   - ORARI    : un oggetto per giorno, da lunedi a domenica.
-                ap/ch = apertura/chiusura in formato "HH:MM", null = chiuso.
-   - MENU     : categorie e voci. Ogni voce ha un id univoco, nome,
-                desc (anche vuota) e prezzo come numero, con il punto.
-   Il resto del file non va toccato per aggiornare il menu.
-   ------------------------------------------------------------------ */
-
 const TELEFONO = "393270536624";
 
 const ORARI = [
@@ -26,11 +15,11 @@ const MENU = [
     {id:"l1", nome:"Combo schiacciata", desc:"Una schiacciata a scelta, bibita in lattina e caffè.", prezzo:8.00},
     {id:"l2", nome:"Combo burger", desc:"Un hamburger a scelta, patatine fritte e bibita.", prezzo:11.50}
   ]},
-  {id:"schiacciate", nome:"Schiacciate", nota:"Schiacciata toscana del forno, tagliata al momento.", voci:[
-    {id:"s1", nome:"La Serraglio", desc:"Prosciutto crudo toscano, pecorino stagionato, rucola, crema di noci.", prezzo:6.50},
-    {id:"s2", nome:"Il Fuorisede", desc:"Mortadella, stracciatella, granella di pistacchio.", prezzo:6.00},
+  {id:"schiacciate", nome:"Schiacciate", nota:"Schiacciata toscana del forno, tagliata al momento. Le foto sono dei prodotti davvero serviti al banco: quello che vedi è quello che ricevi.", voci:[
+    {id:"s1", nome:"La Serraglio", desc:"Prosciutto crudo toscano, pecorino stagionato, rucola, crema di noci.", prezzo:6.50, foto:"img/schiacciata-crudo.png"},
+    {id:"s2", nome:"Il Fuorisede", desc:"Mortadella, stracciatella, granella di pistacchio.", prezzo:6.00, foto:"img/schiacciata-banco.png"},
     {id:"s3", nome:"La Tesi", desc:"Porchetta, salsa verde, pomodoro.", prezzo:6.50},
-    {id:"s4", nome:"Il Classico", desc:"Salame toscano e pecorino.", prezzo:5.00},
+    {id:"s4", nome:"Il Classico", desc:"Salame toscano e pecorino.", prezzo:5.00, foto:"img/schiacciata-salame.png"},
     {id:"s5", nome:"La Biblioteca", desc:"Melanzane grigliate, hummus, pomodori secchi, spinacino. Vegana.", prezzo:5.50},
     {id:"s6", nome:"La Petrino", desc:"Tonno, cipolla rossa, lattuga, maionese.", prezzo:5.50}
   ]},
@@ -101,6 +90,7 @@ function disegnaMenu(){
       <div class="voci">
         ${c.voci.map(v => `
           <article class="voce">
+            ${v.foto ? `<img class="voce-foto" src="${v.foto}" alt="${v.nome}" width="206" height="206" loading="lazy">` : ""}
             <div class="voce-testo">
               <h4>${v.nome}</h4>
               ${v.desc ? `<p>${v.desc}</p>` : ""}
@@ -259,4 +249,3 @@ disegnaOrari();
 disegnaStato();
 disegnaTutto();
 setInterval(disegnaStato, 60000);
-
