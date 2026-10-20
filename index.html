@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Container Serraglio — schiacciate, burger e hot dog per il PIN</title>
+<meta name="description" content="Il container bar davanti al PIN di Prato, Porta al Serraglio. Ordina schiacciate, hamburger e hot dog e ritirali tra una lezione e l’altra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="testata">
+  <div class="wrap testata-in">
+    <a class="marchio" href="#top"><span class="marchio-bollo" aria-hidden="true">CS</span> Container Serraglio</a>
+    <nav class="nav">
+      <a href="#menu">Menù</a>
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#dove-siamo">Dove siamo</a>
+      <button class="btn-carrello" id="apri-ordine">Il tuo ordine <span class="conteggio" id="conteggio">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="apertura">
+    <div class="wrap apertura-griglia">
+      <div>
+        <p class="stato" id="stato"><span class="pallino"></span><span id="stato-testo">Controllo gli orari…</span></p>
+        <h1>Il pranzo tra una lezione e l’altra.</h1>
+        <p class="occhiello">Schiacciate, hamburger e hot dog preparati nel container davanti al PIN. Ordini da qui, scegli l’ora di ritiro, passi al banco e paghi quando ritiri. Niente fila all’intervallo.</p>
+        <div class="azioni">
+          <a class="btn btn-primario" href="#menu">Guarda il menù</a>
+          <a class="btn btn-secondario" href="#dove-siamo">Come arrivare</a>
+        </div>
+      </div>
+      <div class="container-vis">
+        <div>
+          <span class="cartello">A 2 minuti dal PIN</span>
+          <p class="nome">Container<span>Serraglio</span></p>
+        </div>
+        <p class="sigle"><span>CSRG 59100 PO</span><span>Via J. L. Protche 7/9</span><span>Porta al Serraglio</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fascia" id="menu">
+    <div class="wrap">
+      <h2>Menù</h2>
+      <p class="intro">Pane e schiacciata del forno qui dietro, carne del macellaio di Prato. Tutto si prepara al momento: metti in conto 10 minuti nelle ore di punta.</p>
+    </div>
+    <nav class="wrap menu-nav" id="menu-nav" aria-label="Categorie del menù"></nav>
+    <div class="wrap" id="menu-lista"></div>
+  </section>
+
+  <section class="fascia" id="come-funziona">
+    <div class="wrap">
+      <h2>Come funziona</h2>
+      <p class="intro">L’ordine arriva al banco via WhatsApp. Si paga al ritiro, in contanti o con carta.</p>
+      <div class="passi">
+        <div class="passo">
+          <h3>Componi l’ordine</h3>
+          <p>Aggiungi quello che ti serve dal menù. Puoi cambiare le quantità fino all’invio.</p>
+        </div>
+        <div class="passo">
+          <h3>Scegli l’ora di ritiro</h3>
+          <p>Le fasce vanno di 10 minuti. Prendi quella che cade tra due lezioni, non quella di adesso.</p>
+        </div>
+        <div class="passo">
+          <h3>Invia e passa a ritirare</h3>
+          <p>Si apre WhatsApp con l’ordine già scritto. Ti rispondiamo con la conferma dell’orario.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fascia" id="dove-siamo">
+    <div class="wrap">
+      <h2>Dove siamo</h2>
+      <div class="dove">
+        <div class="dati">
+          <p>Via Jean Louise Protche 7/9, 59100 Prato — nell’area del playground del Serraglio, tra la stazione di Porta al Serraglio e il PIN. Dall’ingresso del polo universitario sono circa due minuti a piedi.</p>
+          <p>Ci sono una ventina di posti a sedere dentro e i tavolini fuori quando il tempo regge. Per gruppi oltre le sei persone scrivici prima.</p>
+          <p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Via+Jean+Louise+Protche+7,+Prato" target="_blank" rel="noopener">Apri la mappa</a> ·
+            <a href="tel:+393270536624">327 053 6624</a> ·
+            <a href="https://www.instagram.com/containerserraglio/" target="_blank" rel="noopener">Instagram</a>
+          </p>
+        </div>
+        <div class="scheda">
+          <table class="orari" id="orari">
+            <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Orari di apertura</caption>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-griglia">
+    <div>
+      <h3>Container Serraglio</h3>
+      <p>Via Jean Louise Protche 7/9<br>59100 Prato</p>
+    </div>
+    <div>
+      <h3>Scrivici</h3>
+      <p><a href="tel:+393270536624">327 053 6624</a><br>
+      <a href="https://www.instagram.com/containerserraglio/" target="_blank" rel="noopener">@containerserraglio</a><br>
+      <a href="https://www.facebook.com/p/Container-Serraglio-61580715420443/" target="_blank" rel="noopener">Pagina Facebook</a></p>
+    </div>
+    <div>
+      <h3>Pausa pranzo</h3>
+      <p>Ordina entro le 12:00 se ti serve<br>il ritiro nella fascia 13:00–13:30.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">Sito dimostrativo, non ufficiale. L’indirizzo e i contatti sono quelli pubblici dell’attività; menù, prezzi e orari sono inventati a scopo di esempio e vanno confermati con il locale prima dell’uso reale.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <strong id="barra-totale">€ 0,00</strong>
+  <span id="barra-pezzi" style="opacity:.75;font-size:.88rem"></span>
+  <button type="button" data-apri>Vedi ordine</button>
+</div>
+
+<dialog id="ordine" aria-labelledby="titolo-ordine">
+  <div class="ordine-testa">
+    <h2 id="titolo-ordine">Il tuo ordine</h2>
+    <button class="chiudi" type="button" id="chiudi-ordine" aria-label="Chiudi">×</button>
+  </div>
+  <div class="ordine-corpo">
+    <div id="righe"></div>
+    <div id="campi" hidden>
+      <div class="campo">
+        <label for="nome">Nome per il ritiro</label>
+        <input id="nome" type="text" autocomplete="given-name" placeholder="Es. Tommi">
+      </div>
+      <div class="campo">
+        <label for="orario">Ora di ritiro</label>
+        <select id="orario"></select>
+      </div>
+      <div class="campo">
+        <label for="note">Note (allergie, senza salse, …)</label>
+        <textarea id="note" placeholder="Opzionale"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="ordine-piede">
+    <div class="totale"><span>Totale</span><span id="totale">€ 0,00</span></div>
+    <button class="btn btn-primario" type="button" id="invia">Invia l’ordine su WhatsApp</button>
+    <small>Si paga al ritiro. Il messaggio si apre già scritto, lo invii tu.</small>
+  </div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
