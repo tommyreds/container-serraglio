@@ -1,7 +1,3 @@
-/* Container Serraglio — foglio di stile
-   Tutti i colori sono variabili CSS dichiarate in :root qui sotto.
-   Per cambiare la palette basta modificare quelle, non i singoli blocchi. */
-
 :root{
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
@@ -74,11 +70,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 }
 .testata-in{display:flex;align-items:center;gap:1.25rem;height:4rem}
 .marchio{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:"Archivo Black",Archivo,sans-serif;font-size:1.05rem;letter-spacing:-.02em}
-.marchio-bollo{
-  width:2.1rem;height:2.1rem;flex:none;border-radius:3px;background:var(--pannello);color:var(--su-pannello);
-  display:grid;place-items:center;font-size:.78rem;letter-spacing:.02em;
-  background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.22) 0 2px,transparent 2px 7px);
+.marchio .logo{height:2.5rem;width:auto;display:block;flex:none}
+.logo-scuro{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .logo-chiaro{display:none}
+  :root:not([data-theme="light"]) .logo-scuro{display:block}
 }
+:root[data-theme="dark"] .logo-chiaro{display:none}
+:root[data-theme="dark"] .logo-scuro{display:block}
 .nav{margin-left:auto;display:flex;align-items:center;gap:1.4rem}
 .nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--tenue)}
 .nav a:hover{color:var(--inchiostro)}
@@ -116,8 +115,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   border-top:5px solid var(--pannello-scuro);border-bottom:5px solid var(--pannello-scuro);
 }
 .container-vis::after{content:"";position:absolute;top:0;bottom:0;right:0;width:14px;background:rgba(0,0,0,.25)}
-.container-vis .nome{font-family:"Archivo Black",Archivo,sans-serif;font-size:clamp(1.9rem,5vw,2.9rem);line-height:.95;letter-spacing:-.02em}
-.container-vis .nome span{display:block;color:var(--giallo)}
+.container-vis .logo-pannello{display:block;height:clamp(7rem,17vw,9.5rem);width:auto}
 .container-vis .sigle{font-size:.76rem;letter-spacing:.08em;color:rgba(244,247,243,.72);display:flex;flex-wrap:wrap;gap:.25rem 1.1rem}
 .container-vis .cartello{align-self:flex-start;background:var(--giallo);color:#15222B;font-weight:700;font-size:.8rem;padding:.3rem .6rem;border-radius:2px;margin-bottom:1rem}
 @media (prefers-reduced-motion:no-preference){
@@ -151,6 +149,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   background:var(--superficie);border:1px solid var(--bordo);border-radius:4px;
   padding:1rem 1.1rem;display:flex;gap:1rem;align-items:flex-start;
 }
+.voce-foto{flex:none;width:5.5rem;height:5.5rem;object-fit:cover;border-radius:3px;display:block;background:var(--superficie-2)}
 .voce-testo{flex:1;min-width:0}
 .voce h4{margin:0;font-size:1.02rem;font-weight:700;font-family:Archivo,sans-serif}
 .voce p{color:var(--tenue);font-size:.9rem;margin-top:.25rem}
