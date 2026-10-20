@@ -14,11 +14,11 @@
 const TELEFONO = "393270536624";
 
 const ORARI = [
-  {g:"Lunedì",    ap:"09:00", ch:"16:00"},
-  {g:"Martedì",   ap:"09:00", ch:"16:00"},
-  {g:"Mercoledì", ap:"09:00", ch:"16:00"},
-  {g:"Giovedì",   ap:"09:00", ch:"16:00"},
-  {g:"Venerdì",   ap:"09:00", ch:"16:00"},
+  {g:"Lunedì",    ap:"10:00", ch:"15:00"},
+  {g:"Martedì",   ap:"10:00", ch:"15:00"},
+  {g:"Mercoledì", ap:"10:00", ch:"15:00"},
+  {g:"Giovedì",   ap:"10:00", ch:"15:00"},
+  {g:"Venerdì",   ap:"10:00", ch:"15:00"},
   {g:"Sabato",    ap:null,    ch:null},
   {g:"Domenica",  ap:null,    ch:null}
 ];
