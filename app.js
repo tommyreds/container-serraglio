@@ -1,3 +1,16 @@
+/* Container Serraglio — logica del sito
+   ------------------------------------------------------------------
+   DA MODIFICARE QUANDO HAI I DATI VERI:
+   - TELEFONO : numero WhatsApp su cui arrivano gli ordini (formato 39...)
+   - ORARI    : un oggetto per giorno, da lunedi a domenica.
+                ap/ch = apertura/chiusura in formato "HH:MM", null = chiuso.
+   - MENU     : categorie e voci. Ogni voce ha un id univoco, nome,
+                desc (anche vuota) e prezzo come numero, con il punto.
+                Campo opzionale foto: percorso di un'immagine quadrata
+                in img/. Se manca, la voce viene mostrata senza miniatura.
+   Il resto del file non va toccato per aggiornare il menu.
+   ------------------------------------------------------------------ */
+
 const TELEFONO = "393270536624";
 
 const ORARI = [
