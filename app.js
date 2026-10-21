@@ -13,6 +13,9 @@
 
 const TELEFONO = "393270536624";
 
+/* Orari dal menu ufficiale: "OPEN 10.30 - 18.00".
+   Il foglio non distingue i giorni della settimana, quindi la fascia è
+   applicata a tutti. Da correggere se il locale ha giorni di chiusura. */
 const ORARI = [
   {g:"Lunedì",    ap:"10:00", ch:"15:00"},
   {g:"Martedì",   ap:"10:00", ch:"15:00"},
@@ -23,44 +26,34 @@ const ORARI = [
   {g:"Domenica",  ap:null,    ch:null}
 ];
 
+/* Voci e prezzi trascritti dal menu ufficiale del Container Serraglio.
+   Ogni categoria ha prezzo unico; il prezzo comprende bevuta e caffè. */
 const MENU = [
-  {id:"lezione", nome:"Menù lezione", nota:"Due combo da ordinare al volo nella pausa.", voci:[
-    {id:"l1", nome:"Combo schiacciata", desc:"Una schiacciata a scelta, bibita in lattina e caffè.", prezzo:8.00},
-    {id:"l2", nome:"Combo burger", desc:"Un hamburger a scelta, patatine fritte e bibita.", prezzo:11.50}
+  {id:"schiacciate", nome:"Schiacciate", nota:"Prezzo unico 6 \u20ac. Le foto sono indicative e servono a mostrare l\u2019aspetto del prodotto: vanno abbinate alle voci giuste insieme al banco.", voci:[
+    {id:"sc1", nome:"Container Serraglio 1", desc:"Crudo, stracciatella, pomodori secchi, rucola.", prezzo:6.00, foto:"img/schiacciata-crudo.png"},
+    {id:"sc2", nome:"Container Serraglio 2", desc:"Crudo, mozzarella, crema al tartufo.", prezzo:6.00, foto:"img/schiacciata-banco.png"},
+    {id:"al1", nome:"Almanacco 1", desc:"Mortadella, pesto di pistacchio, pomodori secchi.", prezzo:6.00},
+    {id:"al2", nome:"Almanacco 2", desc:"Mortadella, stracciatella, crema di carciofi.", prezzo:6.00},
+    {id:"pg1", nome:"Playground 1", desc:"Cotto, crema di carciofi, insalata.", prezzo:6.00},
+    {id:"pg2", nome:"Playground 2", desc:"Cotto, provola, zucchine.", prezzo:6.00},
+    {id:"bi1", nome:"Bischero 1", desc:"Sbriciolona, provola, melanzane, insalata.", prezzo:6.00},
+    {id:"bi2", nome:"Bischero 2", desc:"Sbriciolona, crema di carciofi, rucola.", prezzo:6.00, foto:"img/schiacciata-salame.png"},
+    {id:"bis", nome:"Bisenzio", desc:"Tonno, pomodoro, maionese, insalata.", prezzo:6.00},
+    {id:"cot", nome:"Panino con cotoletta", desc:"", prezzo:6.00}
   ]},
-  {id:"schiacciate", nome:"Schiacciate", nota:"Schiacciata toscana del forno, tagliata al momento. Le foto sono dei prodotti davvero serviti al banco: quello che vedi è quello che ricevi.", voci:[
-    {id:"s1", nome:"La Serraglio", desc:"Prosciutto crudo toscano, pecorino stagionato, rucola, crema di noci.", prezzo:6.50, foto:"img/schiacciata-crudo.png"},
-    {id:"s2", nome:"Il Fuorisede", desc:"Mortadella, stracciatella, granella di pistacchio.", prezzo:6.00, foto:"img/schiacciata-banco.png"},
-    {id:"s3", nome:"La Tesi", desc:"Porchetta, salsa verde, pomodoro.", prezzo:6.50},
-    {id:"s4", nome:"Il Classico", desc:"Salame toscano e pecorino.", prezzo:5.00, foto:"img/schiacciata-salame.png"},
-    {id:"s5", nome:"La Biblioteca", desc:"Melanzane grigliate, hummus, pomodori secchi, spinacino. Vegana.", prezzo:5.50},
-    {id:"s6", nome:"La Petrino", desc:"Tonno, cipolla rossa, lattuga, maionese.", prezzo:5.50}
+  {id:"pinsa", nome:"Pinsa", nota:"Prezzo unico 7 \u20ac.", voci:[
+    {id:"pi1", nome:"Margherita", desc:"", prezzo:7.00},
+    {id:"pi2", nome:"Salamino piccante", desc:"", prezzo:7.00},
+    {id:"pi3", nome:"Cotto e wurstel", desc:"", prezzo:7.00},
+    {id:"pi4", nome:"Napoli", desc:"", prezzo:7.00},
+    {id:"pi5", nome:"Crudo", desc:"", prezzo:7.00}
   ]},
-  {id:"hamburger", nome:"Hamburger", nota:"Carne bovina toscana, pane al latte, cotti sulla piastra.", voci:[
-    {id:"h1", nome:"Container 180", desc:"Burger 180 g, cheddar, insalata, pomodoro, salsa della casa.", prezzo:8.00},
-    {id:"h2", nome:"Doppio Binario", desc:"Due burger da 100 g, doppio cheddar, bacon, cipolla croccante.", prezzo:9.50},
-    {id:"h3", nome:"Bisenzio", desc:"Burger 180 g, brie, cipolle caramellate, rucola.", prezzo:8.50},
-    {id:"h4", nome:"Orto", desc:"Burger di ceci e quinoa, hummus, zucchine grigliate. Vegetariano.", prezzo:7.50}
+  {id:"griglia", nome:"Hamburgher e hot dog", nota:"Prezzo unico 8 \u20ac, patatine fritte comprese.", voci:[
+    {id:"hb", nome:"Hamburgher", desc:"Con patatine fritte.", prezzo:8.00},
+    {id:"hd", nome:"Hot dog", desc:"Con patatine fritte.", prezzo:8.00}
   ]},
-  {id:"hotdog", nome:"Hot dog", nota:"Würstel grigliato e pane morbido, 100% suino salvo dove indicato.", voci:[
-    {id:"d1", nome:"Classico", desc:"Senape, ketchup, niente fronzoli.", prezzo:4.00},
-    {id:"d2", nome:"Prato Dog", desc:"Cheddar fuso, cipolla croccante, salsa barbecue.", prezzo:5.50},
-    {id:"d3", nome:"Chili Dog", desc:"Chili di carne, cheddar, jalapeños.", prezzo:6.00},
-    {id:"d4", nome:"Veggie Dog", desc:"Würstel vegetale, crauti, senape al miele.", prezzo:5.00}
-  ]},
-  {id:"fritti", nome:"Da aggiungere", nota:"", voci:[
-    {id:"f1", nome:"Patatine fritte", desc:"Porzione singola.", prezzo:3.00},
-    {id:"f2", nome:"Patatine cheddar e bacon", desc:"", prezzo:4.50},
-    {id:"f3", nome:"Anelli di cipolla", desc:"Sei pezzi.", prezzo:3.50},
-    {id:"f4", nome:"Nuggets di pollo", desc:"Sei pezzi, con salsa a scelta.", prezzo:4.00}
-  ]},
-  {id:"bevande", nome:"Bevande e caffè", nota:"", voci:[
-    {id:"b1", nome:"Acqua 0,5 l", desc:"", prezzo:1.00},
-    {id:"b2", nome:"Bibita in lattina", desc:"Cola, aranciata, tè al limone.", prezzo:2.00},
-    {id:"b3", nome:"Birra alla spina 0,4 l", desc:"Solo dalle 17:00.", prezzo:4.00},
-    {id:"b4", nome:"Caffè", desc:"", prezzo:1.10},
-    {id:"b5", nome:"Cappuccino", desc:"", prezzo:1.50},
-    {id:"b6", nome:"Cornetto", desc:"Vuoto, crema o marmellata.", prezzo:1.30}
+  {id:"primi", nome:"Primi piatti", nota:"Prezzo unico 8 \u20ac.", voci:[
+    {id:"pr1", nome:"Primo piatto", desc:"La proposta cambia di giorno in giorno: chiedi al banco quale c\u2019\u00e8 oggi.", prezzo:8.00}
   ]}
 ];
 
@@ -177,7 +170,7 @@ function statoAttuale(){
   const ora = new Date();
   const o = ORARI[indiceGiorno(ora)];
   const adesso = ora.getHours()*60 + ora.getMinutes();
-  if (!o.ap) return {aperto:false, testo:"Oggi chiuso · riapriamo lunedì alle 8:00"};
+  if (!o.ap) return {aperto:false, testo:"Oggi chiuso · ordini sempre aperti"};
   if (adesso < min(o.ap)) return {aperto:false, testo:"Chiuso · apriamo oggi alle " + o.ap};
   if (adesso >= min(o.ch)) return {aperto:false, testo:"Chiuso per oggi · ordini sempre aperti"};
   return {aperto:true, testo:"Aperto ora · si chiude alle " + o.ch};
