@@ -131,6 +131,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .fascia{padding:3.25rem 0}
 .fascia h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:.6rem}
 .fascia .intro{color:var(--tenue);max-width:58ch;margin-bottom:2rem}
+.avviso{
+  margin:-1rem 0 1.5rem;max-width:58ch;font-size:.95rem;
+  border-left:4px solid var(--giallo);background:var(--superficie);
+  border-radius:0 3px 3px 0;padding:.8rem 1rem;
+}
+.avviso strong{display:block}
 
 /* ---------- menù ---------- */
 .menu-nav{
